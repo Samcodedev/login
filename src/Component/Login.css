@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
 }
-.login .sub-login .box{
+.login .sub-login .box, .pup-up-box{
     background-color: #fff;
     padding: 50px 50px;
     border-radius: 10px;
