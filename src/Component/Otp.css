@@ -9,18 +9,6 @@
 top: 0;
 left: 0;
 }
-.login .sub-login .pup .pup-up-box{
-    background-color: #fff;
-    padding: 50px 50px;
-    border-radius: 10px;
-    width: 400px;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 .login .sub-login .pup .pup-up-box svg{
     font-size: 100px;
     margin: 10px 0;
