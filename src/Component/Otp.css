@@ -1,0 +1,45 @@
+.login .sub-login .pup{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(11, 11, 11, 0.715);
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+}
+.login .sub-login .pup .pup-up-box{
+    background-color: #fff;
+    padding: 50px 50px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.login .sub-login .pup .pup-up-box svg{
+    font-size: 100px;
+    margin: 10px 0;
+    color: rgb(252, 63, 63);
+}
+.login .sub-login .pup .pup-up-box p{
+    margin-block-start: 0;
+    margin-block-end: 40px;
+    width: 90%;
+    font-size: 0.8rem;
+}
+button{
+    width: 80%;
+    padding: 20px 20px;
+    background-color: rgb(167, 3, 71);
+    border: 1.5px solid rgb(167, 3, 71);
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+button:active{
+    background-color: rgba(167, 3, 71, 0.745);
+    border: 1.5px solid rgb(167, 3, 71, 0.745);
+}
