@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './Login.css'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -10,6 +10,8 @@ const Login = () => {
 	let [value, setValue] = useState("")
 	// store the phone number in the local storage to be reuse anytime
 	localStorage.setItem("number", mobile)
+
+	const navigate = useNavigate();
 
 
 	function call(){
@@ -29,10 +31,12 @@ const Login = () => {
 
 	const handleLogin = async (e) =>{
 		e.preventDefault();
-		let result = await fetch("http://localhost:5000/api/v1/validate/createuser",
+		
+		let result = await fetch(
+		"https://yv-hackathon-backend-mxfqmptpeq-uc.a.run.app/api/v1/validate/createuser",
 		{
 			method: "post",
-			credencials: "include",
+			credentials: "include",
 			body: JSON.stringify({ mobile }),
 			headers: {
 				"content-Type": "application/json",
@@ -43,11 +47,11 @@ const Login = () => {
 		console.warn(result);
 		console.log(result);
 
-		if(result.success){
+		if(result.success === true){
 			setMessage(result.message)
 			setNotice(true)
 			setInterval(() => {
-				Navigate('/otp')
+				navigate('/otp')
 			}, 1000);
 		}else{
 			setMessage("Please Enter a correct phone number")
@@ -69,7 +73,9 @@ const Login = () => {
                 <input style={{
 					border: notice ? `1.5px solid ${value}`  : `1.5px solid ${value}`
 				}} type="number" name="number" placeholder='Enter your phone number'  onChange={(e) => setValuemobile(e.target.value)} />
-                <small>{notice? message : message}</small>
+                <small style={{
+					color: value
+				}}>{notice? message : message} {value = "rgb(167, 3, 71)" ? "Something went wrong" : " null" }</small>
 				<input type="submit" value="NEXT" />
             </form>
         </div>
