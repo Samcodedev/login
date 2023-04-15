@@ -12,7 +12,7 @@ const Otp = () => {
 	let [message, setMessage] = useState(" ")
 	let [notice, setNotice] = useState( )
   let [value, setValue] = useState("")
-  let [pup, pupValue] =  useState(true)
+  let [pup, pupValue] =  useState()
 
   
   // get the phone number stored in the local storage
