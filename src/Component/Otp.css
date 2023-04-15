@@ -1,19 +1,23 @@
 .login .sub-login .pup{
     position: absolute;
+    height: 80%;
+    width: 100vw;
     height: 100%;
-    width: 100%;
-    /* background-color: rgba(11, 11, 11, 0.715); */
+    /* padding: 50px 50px; */
+    background-color: rgba(11, 11, 11, 0.797);
     /* display: none; */
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
     justify-content: center;
     align-items: center;
 }
 .login .sub-login .pup .pup-up-box{
     background-color: #fff;
-    padding: 50px 50px;
+    padding: 20px 50px;
     border-radius: 10px;
-    width: 500px;
-    max-width: 80%;
     display: flex;
+    width: 500px;
+    max-width: 60%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,9 +28,12 @@
     margin: 10px 0;
     color: rgb(252, 63, 63);
 }
+.login .sub-login .pup .pup-up-box h1{
+    margin-block-end: 10px;
+}
 .login .sub-login .pup .pup-up-box p{
     margin-block-start: 0;
-    margin-block-end: 40px;
+    margin-block-end: 20px;
     width: 90%;
     font-size: 0.8rem;
 }

@@ -12,7 +12,7 @@ const Otp = () => {
 	let [message, setMessage] = useState(" ")
 	let [notice, setNotice] = useState( )
   let [value, setValue] = useState("")
-  let [pup, pupValue] =  useState()
+  let [pup, pupValue] =  useState(true)
 
   
   // get the phone number stored in the local storage
@@ -39,13 +39,13 @@ const Otp = () => {
     // pupClick()
     setTimeout(() => {
       pupValue(true)
-    }, 1500);
+    }, 3500);
 
 		e.preventDefault();
 		let result = await fetch("https://yv-hackathon-backend-mxfqmptpeq-uc.a.run.app/api/v1/validate/validateotp",
 		{
 			method: "post",
-			credentials: "include",
+			credentials: "omit",
       // post both the phone number and the otp received by the user
 			body: JSON.stringify({ mobile, otp }),
       mode: "cors",
@@ -76,7 +76,9 @@ const Otp = () => {
   return (
     <div className='login'>
       <div className="sub-login">
-        <div className="box">
+        <div className="box" style={{
+          filter: pup ? "blur(8px)" : "none"
+        }}>
             <img src="" alt="" />
             <h1>Age Verification</h1>
             <p>Please enter the OTP sent to {mobile}</p>
@@ -101,7 +103,7 @@ const Otp = () => {
                 notice ? <FcApproval /> : <HiXCircle />
               }
               <h1>Woo hoo</h1>
-              <p>{ message !== " " || null || undefined ? console.log(message) : "Something went wrong, check your internet connection." }</p>
+              <p>{ message !== " " || null || undefined ? `${message}` : "Something went wrong, check your internet connection." }</p>
               <button onClick={pupClick}>close</button>
           </div>
         </div>

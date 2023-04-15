@@ -6,8 +6,8 @@ const Login = () => {
 
     const [mobile, setValuemobile] = useState("");
 	let [message, setMessage] = useState("")
-	let [notice, setNotice] = useState()
-	let [value, setValue] = useState("")
+	let [notice, setNotice] = useState( )
+	let [value, setValue] = useState()
 	// store the phone number in the local storage to be reuse anytime
 	localStorage.setItem("number", mobile)
 
@@ -15,14 +15,15 @@ const Login = () => {
 
 
 	function call(){
-	  if(notice === true){
+	  if(notice === true  ){
 		setValue("green")
 		console.log(value)
 	  }else if(notice === false){
 		setValue("red")
-	  }else{
-		setValue("rgb(167, 3, 71)")
+	  }else if( notice === "#e6ba09"){
+		setValue("#e6ba09")
 	  }
+	  console.log(value)
 	}
   
 	useEffect(() =>{
@@ -31,12 +32,14 @@ const Login = () => {
 
 	const handleLogin = async (e) =>{
 		e.preventDefault();
+		call()
+		setValue("#e6ba09")
 		
 		let result = await fetch(
 		"https://yv-hackathon-backend-mxfqmptpeq-uc.a.run.app/api/v1/validate/createuser",
 		{
 			method: "post",
-			credentials: "include",
+			credentials: "omit",
 			body: JSON.stringify({ mobile }),
 			headers: {
 				"content-Type": "application/json",
@@ -52,13 +55,11 @@ const Login = () => {
 			setNotice(true)
 			setInterval(() => {
 				navigate('/otp')
-			}, 1000);
+			}, 3500);
 		}else{
 			setMessage("Please Enter a correct phone number")
 			setNotice(false)
 		}
-
-		call()
 	}
 
   return (
@@ -75,7 +76,7 @@ const Login = () => {
 				}} type="number" name="number" placeholder='Enter your phone number'  onChange={(e) => setValuemobile(e.target.value)} />
                 <small style={{
 					color: value
-				}}>{notice? message : message} {value = "rgb(167, 3, 71)" ? "Something went wrong" : " null" }</small>
+				}}>{notice? message : message} {value === "#e6ba09" ? "something went wrong check your internet connection" : " " }</small>
 				<input type="submit" value="NEXT" />
             </form>
         </div>
